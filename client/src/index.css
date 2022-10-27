@@ -1,0 +1,42 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+
+.lists {
+    width: 50%;
+    margin-top: 25px;
+    padding: 10px;
+    padding-left: 30px;
+    border: 2px solid #00796b;
+    border-radius: 15px;
+    background-color: #f2f4f4;
+}
+
+.listLi {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.noteLi {
+    position: relative;
+    margin-bottom: 15px;
+    color: #00796b;
+}
+
+.lists .listLi {
+    list-style-type: disclosure-closed;
+    color: #00796b;
+}
+
+.delete {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    right: 0;
+}
+
+.nav{
+    color: #00796b;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+}
