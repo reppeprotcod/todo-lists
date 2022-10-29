@@ -4,6 +4,9 @@ import mongoose from "mongoose";
 import {conf} from "./config.js";
 import router from "./router.js";
 import corsMiddleware from "./middleware/cors.middleware.js";
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //const DB_URL = "mongodb+srv://user:user123@cluster0.mcfsae1.mongodb.net/?retryWrites=true&w=majority";
 
@@ -24,7 +27,8 @@ if(process.env.NODE_ENV === 'production') {
 const start = async () => {
     try {
         await mongoose.connect(conf.DB_URL);
-        app.listen(conf.PORT, () => console.log('Server started on port' + conf.PORT));
+        const PORT = process.env.PORT || conf.PORT;
+        app.listen(PORT, () => console.log('Server started on port' + PORT));
     } catch (e) {
         console.log(e);
     }
