@@ -10,7 +10,7 @@ const router = new Router();
 
 router.post('/registration', [
     check('username', "user name cannot be empty").notEmpty(),
-    check('password', "password length cannot be less than 4 and more than 10").isLength({min: 4, max: 10})
+    check('password', "password length cannot be less than 6 and more than 50").isLength({min: 6, max: 50})
 ], AuthController.registration);
 router.post('/login', AuthController.login);
 router.get('/lists', authMiddleware, AuthController.getLists);
