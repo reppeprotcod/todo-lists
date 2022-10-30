@@ -8,12 +8,12 @@ import NotesList from "../components/NotesList";
 const List = () => {
     const params = useParams();
     const id = params.id;
-    const [notes, setNotes] = useState(null);
+    const [notes, setNotes] = useState([]);
     const auth = useContext(AuthContext);
 
     useEffect(() => {
         (async () => {
-            if(!notes || !notes.length){
+            if((!notes || !notes.length) && auth.token){
                 let notes = await getNotes(id, auth.token);
                 setNotes(notes);
             }

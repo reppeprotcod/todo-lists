@@ -10,7 +10,7 @@ const Lists = () => {
 
     useEffect(() => {
         (async () => {
-            if (!lists || !lists.length) {
+            if ((!lists || !lists.length) && auth.token) {
                 let list = await getLists(auth.token);
                 setLists(list.map((l, key) => {
                     l.key = key;

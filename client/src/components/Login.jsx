@@ -31,7 +31,7 @@ const Login = () => {
                     </div>
                     <div className="row">
                         <div className="input-field col s12">
-                            <input value={password} onChange={(event) => setPassword(event.target.value)} id="password" type="password" className="validate" />
+                            <input value={password} onChange={(event) => setPassword(event.target.value)} onKeyPress={(event) => {if(event.key === 'Enter') loginClick()}} id="password" type="password" className="validate" />
                             <label htmlFor="password">Password</label>
                         </div>
                     </div>

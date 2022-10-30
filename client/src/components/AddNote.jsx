@@ -18,7 +18,7 @@ const AddNote = (props) => {
                 <form className="col s12">
                     <div className="row">
                         <div className="input-field col s12">
-                            <input value={note} onChange={(event) => setNote(event.target.value)} id="note" type="text" className="validate" />
+                            <input value={note} onChange={(event) => setNote(event.target.value)} onKeyPress={(event) => { if(event.key === 'Enter') onAddNote(); }} id="note" type="text" className="validate" />
                             <label htmlFor="note">Note</label>
                         </div>
                     </div>

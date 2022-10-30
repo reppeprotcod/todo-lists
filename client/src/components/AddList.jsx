@@ -18,7 +18,7 @@ const AddList = (props) => {
                 <form className="col s12">
                     <div className="row">
                         <div className="input-field col s12">
-                            <input value={title} onChange={(event) => setTitle(event.target.value)} id="title" type="text" className="validate" />
+                            <input value={title} onChange={(event) => setTitle(event.target.value)} onKeyPress={(event) => {if(event.key === 'Enter') onCreateList()}} id="title" type="text" className="validate" />
                             <label htmlFor="title">Title</label>
                         </div>
                     </div>

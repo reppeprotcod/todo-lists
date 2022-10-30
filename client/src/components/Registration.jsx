@@ -39,7 +39,7 @@ const Registration = () => {
                         </div>
                         <div className="row">
                             <div className="input-field col s12">
-                                <input value={passwordTwo} onChange={(event) => setPasswordTwo(event.target.value)} id="passwordTwo" type="password" className="validate" />
+                                <input value={passwordTwo} onChange={(event) => setPasswordTwo(event.target.value)} onKeyPress={(event) => {if(event.key === 'Enter') checkPasswords()}} id="passwordTwo" type="password" className="validate" />
                                 <label htmlFor="passwordTwo">Confirm password</label>
                             </div>
                         </div>
