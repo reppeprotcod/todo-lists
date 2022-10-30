@@ -16,6 +16,24 @@
     }
 }
 
+.mainPage {
+    width: 50%;
+    margin-top: 175px;
+    color: #00796b;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.mainPage h5{
+    font-weight: 500;
+}
+
+@media (max-width: 730px){
+    .mainPage {
+        width: 80%;
+    }
+}
+
 .listLi {
     position: relative;
     margin-bottom: 15px;

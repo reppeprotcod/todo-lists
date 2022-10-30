@@ -10,6 +10,7 @@ import AuthContext from '../contexts/AuthContext';
 import { useContext, useEffect } from 'react';
 import Lists from './Lists';
 import List from './List';
+import Main from '../components/Main';
 
 const Nav = () => {
   const auth = useContext(AuthContext);
@@ -35,6 +36,7 @@ function App() {
         <div>
           <Nav />
           <Routes>
+            <Route path='/' element={<Main />} />
             <Route path='/registration' element={<Registration />} />
             <Route path='/login' element={<Login />} />
             <Route path='/lists' element={<Lists />} />
