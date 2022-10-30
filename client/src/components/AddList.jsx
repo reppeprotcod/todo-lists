@@ -8,8 +8,8 @@ const AddList = (props) => {
 
     const onCreateList = async () => {
         await addList(title, auth.token);
-        setTitle("");
         props.onClick();
+        setTitle("");
     }
 
     return (
