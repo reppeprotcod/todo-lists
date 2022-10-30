@@ -30,7 +30,7 @@ class ListController {
             const list = await List.findById(req.params.list_id);
             const note = list.value.splice(req.params.index, 1);
             if(!note) {
-                res.status(400).json({message: "there is no note with such id"});
+                return res.status(400).json({message: "there is no note with such id"});
             }
             await list.save();
             res.json({note});

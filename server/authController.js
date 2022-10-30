@@ -18,14 +18,14 @@ class AuthController{
         try {
             const errors = validationResult(req);
             if(!errors.isEmpty()){
-                res.status(400).json({message: "registration error", errors});
+                return res.status(400).json({message: "registration error", errors});
             }
 
             const {username, password} = req.body;
 
             const candidate = await User.findOne({username});
             if(candidate) {
-                res.status(400).json({message: "User with such name already exists"});
+                return res.status(400).json({message: "User with such name already exists"});
             }
 
             const hashPassword = bcrypt.hashSync(password, 7);
@@ -46,12 +46,12 @@ class AuthController{
 
             const user = await User.findOne({username});
             if(!user){
-                res.status(400).json({message: "user is not found"});
+                return res.status(400).json({message: "user is not found"});
             }
 
             const comparePassword = bcrypt.compareSync(password, user.password);
             if(!comparePassword) {
-                res.status(400).json({message: "invalid password"});
+                return res.status(400).json({message: "invalid password"});
             }
 
             const token = generateAccessToken(user._id);
@@ -91,7 +91,7 @@ class AuthController{
         try {
             const list = await List.findByIdAndDelete(req.params.id);
             if (!list) {
-                res.status(404).json({message: "There is no list with such id"});
+                return res.status(404).json({message: "There is no list with such id"});
             }
             res.json({list});
         } catch (e) {
