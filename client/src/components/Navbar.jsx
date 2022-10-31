@@ -1,7 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
+
+    const { t, i18n } = useTranslation();
+
     return (
         <div>
             <nav>
@@ -10,12 +14,12 @@ const Navbar = () => {
                         <a href="/" className="brand-logo">ToDo</a>
                         <a href="#" data-target="slide-out" className="sidenav-trigger"><i>=</i></a>
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            <li><NavLink to="/login">Вход</NavLink></li>
-                            <li><NavLink to="/registration">Регистрация</NavLink></li>
+                            <li><NavLink to="/login">{t('sign in')}</NavLink></li>
+                            <li><NavLink to="/registration">{t('sign up')}</NavLink></li>
                         </ul>
                         <ul id="slide-out" className="sidenav">
-                            <li><NavLink to="/login">Вход</NavLink></li>
-                            <li><NavLink to="/registration">Регистрация</NavLink></li>
+                            <li><NavLink to="/login">{t('sign in')}</NavLink></li>
+                            <li><NavLink to="/registration">{t('sign up')}</NavLink></li>
                         </ul>
                     </div>
                 </div>

@@ -1,12 +1,15 @@
 import React, { useContext } from "react";
 import deleteNote from "../actions/deleteNote";
 import AuthContext from "../contexts/AuthContext";
+import { useTranslation } from 'react-i18next';
 
 const NotesList = (props) => {
     const auth = useContext(AuthContext);
 
+    const { t, i18n } = useTranslation();
+
     if(!props.notes || !props.notes.length){
-        return <p className="center">Задач пока нет</p>
+        return <p className="center">{t('no notes')}</p>
     }
 
     return ( <ul>

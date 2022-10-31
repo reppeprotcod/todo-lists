@@ -2,12 +2,15 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import deleteList from "../actions/deleteList.js";
 import AuthContext from "../contexts/AuthContext";
+import { useTranslation } from 'react-i18next';
 
 const ListsList = (props) => {
     const auth = useContext(AuthContext);
 
+    const { t, i18n } = useTranslation();
+
     if (!props.lists || !props.lists.length) {
-        return <p className="center">Списков пока нет</p>
+        return <p className="center">{t('no lists')}</p>
     }
 
     return (<ul>

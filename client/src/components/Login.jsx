@@ -2,9 +2,12 @@ import React, { useState, useContext } from "react";
 import login from "../actions/userLogin.js";
 import AuthContext from "../contexts/AuthContext.js";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const Login = () => {
     const navigate = useNavigate();
+
+    const { t, i18n } = useTranslation();
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -26,16 +29,16 @@ const Login = () => {
                     <div className="row">
                         <div className="input-field col s12">
                             <input value={username} onChange={(event) => setUsername(event.target.value)} id="username" type="text" className="validate" />
-                            <label htmlFor="username">Username</label>
+                            <label htmlFor="username">{t('username')}</label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col s12">
                             <input value={password} onChange={(event) => setPassword(event.target.value)} onKeyPress={(event) => {if(event.key === 'Enter') loginClick()}} id="password" type="password" className="validate" />
-                            <label htmlFor="password">Password</label>
+                            <label htmlFor="password">{t('password')}</label>
                         </div>
                     </div>
-                    <a className="waves-effect waves-light #00796b teal darken-2 btn" onClick={loginClick}>Вход</a>
+                    <a className="waves-effect waves-light #00796b teal darken-2 btn" onClick={loginClick}>{t('sign in')}</a>
                 </div>
             </form>
         </div>
