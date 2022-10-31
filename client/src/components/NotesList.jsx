@@ -12,7 +12,7 @@ const NotesList = (props) => {
     return ( <ul>
         {props.notes.map((note, key) => {
             return(
-                <li className="noteLi" key={key}>{note} <a className=" delete #00796b teal darken-2 btn-small" onClick={async () => {await deleteNote(props.id, key, auth.token); props.onClick()}}>✓</a></li>
+                <li className="noteLi" key={key}> <div>{note}</div> <a className=" delete #00796b teal darken-2 btn-small" onClick={async () => {await deleteNote(props.id, key, auth.token); props.onClick()}}>✓</a></li>
             )
         })}
     </ul>

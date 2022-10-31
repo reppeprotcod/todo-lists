@@ -36,14 +36,25 @@
 }
 
 .listLi {
+    display: flex;
     position: relative;
     margin-bottom: 15px;
 }
 
 .noteLi {
+    display: flex;
+    flex-direction: row;
     position: relative;
     margin-bottom: 15px;
     color: #00796b;
+}
+
+.noteLi div{
+    margin-right: 50px;
+}
+
+.noteLi a {
+    display: block;
 }
 
 .lists .listLi {
@@ -63,5 +74,5 @@
     color: #00796b;
     font-weight: bold;
     text-transform: uppercase;
-    
+    margin-right: 50px;
 }
