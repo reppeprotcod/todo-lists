@@ -12,7 +12,8 @@ const addNote = async (id, note, token) => {
         });
         //alert(response.data.message);
     } catch (e) {
-        alert(e.response.data.message);
+        console.log(e);
+        alert(e.message);
     }
 }
 

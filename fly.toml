@@ -1,0 +1,19 @@
+# fly.toml file generated for marta-todo-lists on 2023-01-06T19:34:03+03:00
+
+app = "marta-todo-lists"
+
+[env]
+  PORT = "8080"
+
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = "443"

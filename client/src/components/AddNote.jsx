@@ -9,7 +9,8 @@ const AddNote = (props) => {
 
     const { t, i18n } = useTranslation();
 
-    const onAddNote = async () => {
+    const onAddNote = async (event) => {
+        event.preventDefault();
         await addNote(props.id, note, auth.token);
         props.onClick();
         setNote("");
@@ -21,7 +22,7 @@ const AddNote = (props) => {
                 <form className="col s12">
                     <div className="row">
                         <div className="input-field col s12">
-                            <input value={note} onChange={(event) => setNote(event.target.value)} onKeyPress={(event) => { if(event.key === 'Enter') onAddNote(); }} id="note" type="text" className="validate" />
+                            <input value={note} onChange={(event) => setNote(event.target.value)} onKeyPress={(event) => {if(event.key === 'Enter') onAddNote(event);}} id="note" type="text" className="validate" />
                             <label htmlFor="note">{t('note')}</label>
                         </div>
                     </div>

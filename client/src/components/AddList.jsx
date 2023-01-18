@@ -9,7 +9,8 @@ const AddList = (props) => {
 
     const { t, i18n } = useTranslation();
 
-    const onCreateList = async () => {
+    const onCreateList = async (event) => {
+        event.preventDefault(); 
         await addList(title, auth.token);
         props.onClick();
         setTitle("");
@@ -21,7 +22,7 @@ const AddList = (props) => {
                 <form className="col s12">
                     <div className="row">
                         <div className="input-field col s12">
-                            <input value={title} onChange={(event) => setTitle(event.target.value)} onKeyPress={(event) => {if(event.key === 'Enter') onCreateList()}} id="title" type="text" className="validate" />
+                            <input value={title} onChange={(event) => setTitle(event.target.value)} onKeyPress={(event) => {if(event.key === 'Enter') onCreateList(event)}} id="title" type="text" className="validate" />
                             <label htmlFor="title">{t('title')}</label>
                         </div>
                     </div>
