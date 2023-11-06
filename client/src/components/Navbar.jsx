@@ -1,10 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
 
     const { t, i18n } = useTranslation();
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -17,7 +18,7 @@ const Navbar = () => {
                             <li><NavLink to="/login">{t('sign in')}</NavLink></li>
                             <li><NavLink to="/registration">{t('sign up')}</NavLink></li>
                         </ul>
-                        <ul id="slide-out" className="sidenav">
+                        <ul id="slide-out" className="sidenav sidenav-close">
                             <li><NavLink to="/login">{t('sign in')}</NavLink></li>
                             <li><NavLink to="/registration">{t('sign up')}</NavLink></li>
                         </ul>

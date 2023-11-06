@@ -19,7 +19,7 @@ const NewNavbar = () => {
                             <li><NavLink to="/login" onClick={() => auth.logout()}>{t('sign out')}</NavLink></li>
                             <li><NavLink to="/lists">{t('lists')}</NavLink></li>
                         </ul>
-                        <ul id="slide-out" className="sidenav">
+                        <ul id="slide-out" className="sidenav sidenav-close">
                             <li><NavLink to="/login" onClick={() => auth.logout()}>{t('sign out')}</NavLink></li>
                             <li><NavLink to="/lists">{t('lists')}</NavLink></li>
                         </ul>

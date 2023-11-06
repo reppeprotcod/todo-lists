@@ -1,22 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import registration from "../actions/userRegistration.js";
+import login from "../actions/userLogin.js";
+import AuthContext from "../contexts/AuthContext.js";
 import { useTranslation } from 'react-i18next';
 
 const Registration = () => {
     const navigate = useNavigate();
 
-    const {t, i18n} = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordTwo, setPasswordTwo] = useState("");
 
+    const auth = useContext(AuthContext);
+
     const checkPasswords = async () => {
         if (password === passwordTwo) {
             //await registration(username, password, navigate);
-            if (await registration(username, password, navigate)) {
-                navigate('/login');
+            if (await registration(username, password)) {
+                const loginState = await login(username, password);
+                if (loginState) {
+                    auth.login(loginState);
+                    navigate('/lists');
+                }
             }
         } else {
             alert(t('passwords do not match'));
@@ -42,7 +50,7 @@ const Registration = () => {
                         </div>
                         <div className="row">
                             <div className="input-field col s12">
-                                <input value={passwordTwo} onChange={(event) => setPasswordTwo(event.target.value)} onKeyPress={(event) => {if(event.key === 'Enter') checkPasswords()}} id="passwordTwo" type="password" className="validate" />
+                                <input value={passwordTwo} onChange={(event) => setPasswordTwo(event.target.value)} onKeyPress={(event) => { if (event.key === 'Enter') checkPasswords() }} id="passwordTwo" type="password" className="validate" />
                                 <label htmlFor="passwordTwo">{t('confirm password')}</label>
                             </div>
                         </div>
